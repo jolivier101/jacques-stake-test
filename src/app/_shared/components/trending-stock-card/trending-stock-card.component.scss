@@ -1,0 +1,113 @@
+@import "../../variables.scss";
+
+.info-container {
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .logo-container {
+      .logo {
+        width: 32px;
+        height: 32px;
+
+        &.small-logo {
+          width: 19px;
+          height: 19px;
+        }
+      }
+    }
+
+    .heading-label {
+      font-size: 14px;
+      line-height: 130%;
+      letter-spacing: 0.25px;
+      font-weight: 800;
+      color: $primary-text-color;
+    }
+
+    .chip {
+      padding: 0 6px;
+      height: 18px;
+      font-size: 10px;
+      line-height: 130%;
+      letter-spacing: 0.25px;
+      font-weight: 800;
+      border-radius: 16px;
+      border: 1px solid $primary-text-color;
+      width: fit-content;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .stock-name,
+    .stock-price {
+      &.stacked {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .primary-text {
+        color: $primary-text-color;
+
+        &.lg {
+          font-size: 18px;
+          line-height: 130%;
+          letter-spacing: 0.25px;
+          font-weight: 800;
+        }
+        &.md {
+          font-size: 16px;
+          line-height: 130%;
+          letter-spacing: 0.25px;
+          font-weight: 800;
+        }
+        &.sm {
+          font-size: 16px;
+          line-height: 130%;
+          letter-spacing: 0.25px;
+          font-weight: 800;
+        }
+      }
+
+      .secondary-text {
+        color: $primary-text-color;
+
+        &.lg {
+          font-size: 14px;
+          line-height: 130%;
+          letter-spacing: 0.25px;
+          font-weight: 504;
+        }
+        &.md {
+          font-size: 12px;
+          line-height: 130%;
+          letter-spacing: 0.25px;
+          font-weight: 504;
+        }
+        &.sm {
+          font-size: 12px;
+          line-height: 130%;
+          letter-spacing: 0.25px;
+          font-weight: 504;
+        }
+        &.bold {
+          font-weight: 800;
+        }
+      }
+    }
+  }
+}

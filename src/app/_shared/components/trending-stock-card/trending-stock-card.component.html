@@ -1,0 +1,43 @@
+<div class="info-container p-16">
+  <div class="heading">
+    <div class="logo-container">
+      <img
+        [src]="trendingStock.logoUrl"
+        class="logo"
+        [class.smallLogo]="size == 'md'"
+      />
+
+      @if (size == 'lg') {
+      <label class="heading-label">{{ trendingStock.symbol }}</label>
+      }
+    </div>
+    <div class="stock-type-container">
+      <div class="chip">
+        {{ trendingStock.type == "stock" ? "Stock" : "EFT" }}
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    @if (size == 'lg' || size == 'md') {
+      <div class="stock-price">
+      <label [ngClass]="[size, 'primary-text']">{{ trendingStock.price | currency : "USD" }}</label>
+    </div>
+    <div class="stock-name">
+      <label [ngClass]="[size, 'secondary-text']">{{ trendingStock.symbol }} • {{ trendingStock.name }}</label>
+    </div>
+     } @else {
+    <div class="stock-name stacked">
+      <label [ngClass]="[size, 'secondary-text', 'bold']">{{ trendingStock.symbol }}</label>
+      <label [ngClass]="[size, 'secondary-text']">{{ trendingStock.name }}</label>
+    </div>
+    <div class="stock-price">
+      <label [ngClass]="[size, 'primary-text']">{{ trendingStock.price | currency : "USD" }}</label>
+    </div>
+    }
+  </div>
+
+  @if (size == 'lg') {
+  <div class="footer"></div>
+  }
+</div>

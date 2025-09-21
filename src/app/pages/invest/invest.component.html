@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="master-container">
+    <!-- Total equity -->
+    <div class="equity-container">
+      <label class="equity-label">Total equity</label>
+      <label class="total-equity">
+        {{ totalEquity$ | async | currency : "USD" }}
+      </label>
+    </div>
+
+    <!-- Holdings -->
+    <div class="holdings-container">
+      <h2 class="section-heading">Holdings</h2>
+      <table class="holdings-table">
+        <thead>
+          <tr>
+            <th class="holdings-table-header">Stock</th>
+            <th class="holdings-table-header pr-12">Price</th>
+            <th class="holdings-table-header">Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="holdings-row" *ngFor="let holding of holdings$ | async">
+            <td>
+              <span class="stock-info">
+                <label class="main-text">{{ holding.symbol }}</label>
+                <label class="sub-text">{{ holding.shares | number : "1.2-2" }} shares</label>
+              </span>
+            </td>
+            <td>
+              <label class="price-text pr-12">
+                {{ holding.price | currency : "USD" }}
+              </label>
+            </td>
+            <td>
+              <ion-badge slot="end" color="success">
+                {{ holding.changePercent | number : "1.2-2" }}%
+              </ion-badge>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Trending stocks carousel -->
+    <div class="trending-container">
+      <h2 class="section-heading">Trending stocks</h2>
+      <swiper-container
+        [slidesPerView]="2.3"
+        [spaceBetween]="10"
+        class="trending-swiper"
+      >
+        <swiper-slide *ngFor="let stock of trending$ | async">
+          <trending-stock-card
+            [trendingStock]="stock"
+            (click)="openBuyModal(stock)"
+          >
+          </trending-stock-card>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </div>
+</ion-content>

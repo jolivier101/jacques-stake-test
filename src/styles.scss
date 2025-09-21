@@ -1,1 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
+$spacing-values: 6, 12, 16, 24, 32, 64;
+
+@mixin generate-padding($property, $side, $value) {
+  .#{$property}-#{$value} {
+    #{$side}: #{$value}px;
+  }
+}
+
+// Generate padding classes for each side and combination (left, right, top, bottom, x, y)
+@each $value in $spacing-values {
+  // Padding all
+  @include generate-padding("p", "padding-left", $value);
+  @include generate-padding("p", "padding-right", $value);
+  @include generate-padding("p", "padding-top", $value);
+  @include generate-padding("p", "padding-bottom", $value);
+
+  // Padding left and right (x-axis)
+  @include generate-padding("px", "padding-left", $value);
+  @include generate-padding("px", "padding-right", $value);
+
+  // Padding top and bottom (y-axis)
+  @include generate-padding("py", "padding-top", $value);
+  @include generate-padding("py", "padding-bottom", $value);
+
+  // Padding left
+  @include generate-padding("pl", "padding-left", $value);
+
+  // Padding right
+  @include generate-padding("pr", "padding-right", $value);
+
+  // Padding top
+  @include generate-padding("pt", "padding-top", $value);
+
+  // Padding bottom
+  @include generate-padding("pb", "padding-bottom", $value);
+}
+
+:root {
+  --ion-background-color: #fff;
+}
+ion-tab-bar {
+  border-top: 1px solid lightgrey;
+}
+
+ion-header {
+  box-shadow: none !important;
+
+  ion-title {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0.5px;
+  }
+}
+
+.custom-modal {
+  --width: calc(100% - 40px);
+  --height: calc(100% - 40px);
+  --border-radius: 20px 20px 40px 40px;
+  --padding: 32px 16px 16px;
+}
+
+.my-toast {
+  text-align: center; 
+  justify-content: center;
+}

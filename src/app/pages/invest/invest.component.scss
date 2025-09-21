@@ -1,0 +1,108 @@
+@import "../../_shared/variables.scss";
+
+.master-container {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  .section-heading {
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: 0.25px;
+    font-weight: 600;
+  }
+}
+
+.equity-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .equity-label {
+    font-size: 12px;
+    line-height: 130%;
+    letter-spacing: 0.5px;
+  }
+
+  .total-equity {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 100%;
+    letter-spacing: 0.5px;
+  }
+}
+
+.holdings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .holdings-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+
+    th:first-child,
+    td:first-child {
+      width: 100%;
+    }
+
+    .holdings-table-header {
+      font-size: 10px;
+      font-weight: 504;
+      line-height: 130%;
+      letter-spacing: 0.25px;
+      color: $secondary-text-color;
+      text-align: right;
+
+      &:first-of-type {
+        text-align: left;
+      }
+    }
+
+    .holdings-row {
+      height: 56px;
+
+      .stock-info {
+        display: flex;
+        flex-direction: column;
+
+        .main-text {
+          font-size: 14px;
+          font-weight: 504;
+          line-height: 130%;
+          letter-spacing: 0.25px;
+          color: $primary-text-color;
+          width: 100%;
+        }
+        .sub-text {
+          font-size: 12px;
+          font-weight: 504;
+          line-height: 130%;
+          letter-spacing: 0.25px;
+          color: $secondary-text-color;
+          width: 100%;
+        }
+      }
+      .price-text {
+        font-size: 12px;
+        font-weight: 504;
+        line-height: 130%;
+        letter-spacing: 0.25px;
+        color: $primary-text-color;
+      }
+
+      ion-badge {
+        padding: 9px;
+        background-color: #22b692;
+        color: #fff;
+        width: 80px;
+        border-radius: 4px;
+        font-size: 13px;
+        font-weight: 504;
+        line-height: 130%;
+        letter-spacing: 0px;
+      }
+    }
+  }
+}

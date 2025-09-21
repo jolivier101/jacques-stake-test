@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Discover</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- <ion-searchbar
+    placeholder="Search stocks"
+    [(ngModel)]="query"
+    (ionInput)="onSearch()">
+  </ion-searchbar>
+
+  <h2>Recently searched</h2>
+  <ion-list>
+    <ion-item *ngFor="let stock of recentSearches">
+      <ion-label>
+        <h2>{{ stock.symbol }}</h2>
+        <p>{{ stock.name }}</p>
+      </ion-label>
+      <ion-note slot="end">{{ stock.price | currency:'USD' }}</ion-note>
+    </ion-item>
+  </ion-list> -->
+
+  <h2>Top 3 volume stock</h2>
+  <!-- <ion-card *ngIf="(trending$ | async) as trending">
+    <ion-card-header>
+      <ion-card-title>{{ trending[0]?.symbol }}</ion-card-title>
+      <ion-card-subtitle>{{ trending[0]?.name }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <h3>{{ trending[0]?.price | currency:'USD' }}</h3>
+      <p>Vol: {{ trending[0]?.volume }}</p>
+      <p>Cap: {{ trending[0]?.marketCap }}</p>
+      <p>Range: {{ trending[0]?.range }}</p>
+    </ion-card-content>
+  </ion-card> -->
+
+</ion-content>

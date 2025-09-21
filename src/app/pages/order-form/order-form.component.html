@@ -1,0 +1,51 @@
+<div class="order-form-content">
+    
+  <div class="heading">
+    <label>{{ stock.symbol }} {{ stock.price | currency : "USD" }}</label>
+  </div>
+
+  <div class="body">
+
+    <ion-select
+      label="Price"
+      labelPlacement="stacked"
+      [(ngModel)]="order.priceType"
+      fill="outline"
+    >
+      <ion-select-option value="market">At market</ion-select-option>
+      <ion-select-option value="limit">Limit</ion-select-option>
+    </ion-select>
+
+    <ion-input
+      label="Amount"
+      fill="outline"
+      labelPlacement="stacked"
+      type="number"
+      [(ngModel)]="order.amount"
+      (ionInput)="calculateShares()"
+    >
+    </ion-input>
+
+    <ion-input
+      label="Shares"
+      labelPlacement="stacked"
+      type="number"
+      fill="outline"
+      [(ngModel)]="order.shares"
+      readonly
+    ></ion-input>
+
+    <!-- <div class="swipe-container">
+      <div class="swipe-track">
+        <div class="swipe-handle" #swipeHandle>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </div>
+        <span class="swipe-label">Swipe to buy</span>
+      </div>
+    </div> -->
+
+    <ion-button expand="block" (click)="submitOrder()">Buy</ion-button>
+
+  </div>
+
+</div>

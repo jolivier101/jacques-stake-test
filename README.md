@@ -1,59 +1,75 @@
 # JacquesTest
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
+Thank you for the opportunity to write this test.
 
-## Development server
+I stuck within the 4hour limit, even though i didnt finish - which pains me greatly
 
-To start a local development server, run:
+I didnt manage to get around to finishing the discover page, nor was I able to finishe the animation and slide button styling around the buy flow.
+I did however focus on a solid structure that focuses on extendability, and i added some unit testing.
 
-```bash
-ng serve
-```
+Also, I wasn't able to download and host the Universal Sans font as there are no complete free versions.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Suggested Endpoints
 
-## Code scaffolding
+Holdings API
+GET /api/holdings
+{
+  "totalEquity": 8036.00,
+  "positions": [
+    {
+      "symbol": "AAPL",
+      "shares": 3.0282,
+      "price": 105.44,
+      "changePercent": 22.9
+    },
+    {
+      "symbol": "TSLA",
+      "shares": 3.0282,
+      "price": 105.44,
+      "changePercent": 22.9
+    }
+  ]
+}
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
+Trending Stocks API
+GET /api/stocks/trending
+{
+  "stocks": [
+    {
+      "symbol": "FIG",
+      "name": "Figma Inc",
+      "price": 131.04,
+      "marketCap": "1.2b",
+      "volume": "36.9m",
+      "range": "30-32"
+    }
+  ]
+}
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
+Search API
+GET /api/stocks/search?q=TIK
+{
+  "results": [
+    { "symbol": "TIK", "name": "TikTok Corp", "price": 78.38 },
+    { "symbol": "TIK.A", "name": "TikTok Alt", "price": 131.04 }
+  ]
+}
 
-## Building
 
-To build the project run:
+Order API
+POST /api/orders
+{
+  "symbol": "GOOG",
+  "priceType": "market",   // or "limit"
+  "amount": 5.1,
+  "shares": 500
+}
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Response:
+{
+  "orderId": "ORD123",
+  "status": "pending",
+  "filledShares": 0
+}
